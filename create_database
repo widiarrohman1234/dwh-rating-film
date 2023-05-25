@@ -1,0 +1,34 @@
+CREATE TABLE dim_movies (
+  movie_id INT PRIMARY KEY,
+  title VARCHAR(255),
+  genre VARCHAR(255),
+  release_year INT,
+  director VARCHAR(255)
+)
+
+CREATE TABLE dim_stateratings (
+    movie_id INT,
+    state VARCHAR(50),
+    average_rating DECIMAL(4, 2)
+);
+
+CREATE TABLE dim_users (
+    user_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    gender VARCHAR(10),
+    age INT,
+    occupation VARCHAR(50),
+    maritalstatus VARCHAR(20),
+    salary DECIMAL(10, 2),
+    state VARCHAR(50),
+    zip VARCHAR(10)
+);
+
+CREATE TABLE fact_ratings (
+  rating_id INT,
+  movie_id INT,
+  user_id INT,
+  rating INT,
+  timestamp TIMESTAMP
+)
